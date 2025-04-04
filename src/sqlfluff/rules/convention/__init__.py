@@ -56,6 +56,13 @@ def get_configs_info() -> dict[str, ConfigInfo]:
             "validation": ["consistent", "shorthand", "convert", "cast"],
             "definition": ("The expectation for using sql type casting"),
         },
+        "expected_prefix": {
+            "definition": (
+                "Expected prefix for constraint naming rules. Default values are "
+                "'pk_' for PRIMARY KEY, 'fk_' for FOREIGN KEY, 'chk_' for CHECK, "
+                "'uc_' for UNIQUE, and 'df_' for DEFAULT constraints."
+            ),
+        },
     }
 
 
@@ -78,6 +85,11 @@ def get_rules() -> list[type[BaseRule]]:
     from sqlfluff.rules.convention.CV10 import Rule_CV10
     from sqlfluff.rules.convention.CV11 import Rule_CV11
     from sqlfluff.rules.convention.CV12 import Rule_CV12
+    from sqlfluff.rules.convention.CV13 import Rule_CV13
+    from sqlfluff.rules.convention.CV14 import Rule_CV14
+    from sqlfluff.rules.convention.CV15 import Rule_CV15
+    from sqlfluff.rules.convention.CV16 import Rule_CV16
+    from sqlfluff.rules.convention.CV17 import Rule_CV17
 
     return [
         Rule_CV01,
@@ -92,4 +104,9 @@ def get_rules() -> list[type[BaseRule]]:
         Rule_CV10,
         Rule_CV11,
         Rule_CV12,
+        Rule_CV13,
+        Rule_CV14,
+        Rule_CV15,
+        Rule_CV16,
+        Rule_CV17,
     ]
